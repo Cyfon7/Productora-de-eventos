@@ -28,4 +28,20 @@ class Concert < ApplicationRecord
         end
         concerts_month
     }
+
+    scope :last_concert, -> (group_id) {
+        if self.where(group_id: group_id).exists?
+            last_date = self.where(group_id: group_id).order(concert_date: :desc).where('concert_date <= ?', Time.now).pluck(:concert_date)
+            
+            if last_date != []
+                last_date[0].strftime("%Y-%B-%A")
+            else
+                "No concerts"
+            end
+        else
+            "No concerts"
+        end
+        
+    }
+
 end
