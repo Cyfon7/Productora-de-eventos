@@ -1,0 +1,36 @@
+<%= form_with(model: concert, local: true) do |form| %>
+    <% if concert.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(concert.errors.count, "error") %> prohibited this concert from being saved:</h2>
+            <ul>
+                <% concert.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+        <%= form.label :concert_title %>
+        <%= form.text_field :concert_title %>
+    <div>
+
+    <div class="field">
+        <%= form.label :group_id %>
+        <%= form.select :group_id, @groups.map {|group| [group.group_name, group.id] }, prompt: "Choose a group" %>
+    </div>
+
+    <div class="field">
+        <%= form.label :num_of_attendants %>
+        <%= form.number_field :num_of_attendants %>
+    </div>
+
+    <div class="field">
+        <%= form.label :concert_date %>
+        <%= form.date_field :concert_date %>
+    </div>
+
+    <div class="actions">
+        <%= form.submit %>
+    </div>
+<% end %>

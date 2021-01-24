@@ -1,11 +1,10 @@
-class ConcertController < ApplicationController
+class ConcertsController < ApplicationController
   def index
     @concerts = Concert.all
   end
   
   def new
     @concert = Concert.new
-
     @groups = Group.all
   end
 
@@ -14,7 +13,7 @@ class ConcertController < ApplicationController
 
     respond_to do |format|
       if @concert.save
-        format.html { redirec_to @concert, notice: 'Concert has been created.'}
+        format.html { redirect_to @concert, notice: 'Concert has been created.'}
       else
         format.html { render :new }
       end
@@ -33,7 +32,7 @@ class ConcertController < ApplicationController
 
   private
     def concert_params
-      params.require(:concert).permit(:concert_title, :num_of_attendants, :concert_date)
+      params.require(:concert).permit(:concert_title, :num_of_attendants, :concert_date, :group_id)
     end
 
 end

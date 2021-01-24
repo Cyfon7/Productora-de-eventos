@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+    <tr>
+        <th>Name:</th>
+        <td><%= @group.group_name %></td>
+    </tr>
+
+    <tr>
+        <th>Members:</th>
+        <td><%= @group.num_of_members %></td>
+    </tr>
+
+    <tr>
+        <th>Debut Date:</th>
+        <td><%= @group.debut_date %></td>
+    </tr>
+
+    <tr>
+        <th>Type:</th>
+        <td><%= @group.group_type %></td>
+    </tr>
+</table>
+
+<%= link_to 'Edit', edit_group_path(@group) %> | 
+<%= link_to 'Back', groups_path %>
