@@ -3,8 +3,29 @@ class Concert < ApplicationRecord
     validates :concert_title, :num_of_attendants, :concert_date, :group_id, presence: true
     
     #Count concerts for specific ID group
-    scope :concerts_of_group, -> (group_id) { Concert.group(:group_id).count[group_id] }
+    scope :concerts_of_group, -> (group_id) { 
+        if self.where(group_id: group_id).exists?
+            self.group(:group_id).count[group_id] 
+        else
+            0
+        end
+    }
 
     #Totalize Attendands for specific ID group
-    scope :group_attendants, -> (group_id) { Concert.where(group_id: group_id).sum(:num_of_attendants)}
+    scope :group_attendants, -> (group_id) { self.where(group_id: group_id).sum(:num_of_attendants)}
+
+    #Count concerts for the actual month
+    scope :concerts_this_month, -> (group_id) {
+        concerts_month = 0
+        if self.where(group_id: group_id).exists?
+            concerts_date_bulk = self.where(group_id: group_id).pluck(:concert_date)
+            actual_month = Time.now.month
+            concerts_date_bulk.each do |date|
+                if date.month == actual_month 
+                    concerts_month += 1
+                end
+            end
+        end
+        concerts_month
+    }
 end

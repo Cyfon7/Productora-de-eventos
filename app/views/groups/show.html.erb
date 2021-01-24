@@ -20,6 +20,27 @@
         <th>Type:</th>
         <td><%= @group.group_type %></td>
     </tr>
+
+    <tr>
+        <th>Concerts this Month:</th>
+        <td><%= Concert.concerts_this_month(@group.id) %></td>
+    </tr>
+
+    <tr>
+        <th>Last Concert:</th>
+        <td>In Progress</td>
+    </tr>
+
+    <tr>
+        <th>Max Attendants in a Concert:</th>
+        <td>In Progress</td>
+    </tr>
+
+    <tr>
+        <th>Longest duration of a Concert:</th>
+        <td>In Progress</td>
+    </tr>
+
 </table>
 
 <%= link_to 'Edit', edit_group_path(@group) %> | 
