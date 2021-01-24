@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  group_name: MyString
+  num_of_members: 1
+  debut_date: 2021-01-24
+  group_type: 1
+
+two:
+  group_name: MyString
+  num_of_members: 1
+  debut_date: 2021-01-24
+  group_type: 1
