@@ -29,6 +29,7 @@ class Concert < ApplicationRecord
         concerts_month
     }
 
+    #Last concert for the actual date
     scope :last_concert, -> (group_id) {
         if self.where(group_id: group_id).exists?
             last_date = self.where(group_id: group_id).order(concert_date: :desc).where('concert_date <= ?', Time.now).pluck(:concert_date)
@@ -41,7 +42,17 @@ class Concert < ApplicationRecord
         else
             "No concerts"
         end
-        
+    }
+
+    #Max attendants in a concert
+    scope :max_attendants, -> (group_id) {
+        if self.where(group_id: group_id).exists?
+            concert_max = self.where(group_id: group_id).order(num_of_attendants: :desc).first
+
+            concert_max.num_of_attendants
+        else
+            0
+        end
     }
 
 end
