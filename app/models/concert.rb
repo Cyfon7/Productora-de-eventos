@@ -1,6 +1,6 @@
 class Concert < ApplicationRecord
     belongs_to :group
-    validates :concert_title, :num_of_attendants, :concert_date, :group_id, presence: true
+    validates :concert_title, :num_of_attendants, :concert_date, :group_id, :concert_starts_at, :concert_ends_at, presence: true
     
     #Count concerts for specific ID group
     scope :concerts_of_group, -> (group_id) { 
@@ -53,6 +53,31 @@ class Concert < ApplicationRecord
         else
             0
         end
+    }
+
+    #Concert with the longest time
+    scope :longest_concert, -> (group_id) {
+        concert_duration = []
+        if self.where(group_id: group_id).exists?
+            concerts_schedule = self.where(group_id: group_id).pluck(:concert_starts_at, :concert_ends_at)
+            concert_duration = concerts_schedule.map do |schedule|
+                hours = 0
+                mins = 0
+                if schedule[0].hour > schedule[1].hour
+                    hours = (24 - schedule[0].hour) + schedule[1].hour
+                else 
+                    hours = schedule[1].hour - schedule[0].hour
+                end
+                
+                mins = (60 - schedule[0].min) + schedule[1].min
+                if mins >= 60
+                    mins -= 60
+                end
+                Time.new(2000, 1, 1, hours, mins)
+            end
+            concert_duration = concert_duration.max
+        end
+        concert_duration.strftime("%H:%M")
     }
 
 end

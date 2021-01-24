@@ -7,6 +7,8 @@
             <th>Group</th>
             <th>Attendants</th>
             <th>Date</th>
+            <th>Starts at</th>
+            <th>Ends at</th>
             <th colspan="3"></th>
         </tr>
     </thead>
@@ -18,6 +20,8 @@
                 <td><%= concert.group %></td>
                 <td><%= concert.num_of_attendants %></td>
                 <td><%= concert.concert_date %></td>
+                <td><%= concert.concert_starts_at.strftime("%H:%M")  %></td>
+                <td><%= concert.concert_ends_at.strftime("%H:%M")  %></td>
                 <td><%= link_to 'Show', concert_path(concert) %></td>
                 <td><%= link_to 'Edit', edit_concert_path(concert) %></td>
                 <td><%= link_to 'Destroy', concert_path(concert), method: :delete, data: { confirm: 'Are you sure? '} %></td>

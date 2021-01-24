@@ -20,6 +20,16 @@
         <th>Date:</th>
         <td><%= @concert.concert_date %></td>
     </tr>
+    
+    <tr>
+        <th>Starts at:</th>
+        <td><%= @concert.concert_starts_at.strftime("%H:%M") %></td>
+    </tr>
+
+    <tr>
+        <th>Ends at:</th>
+        <td><%= @concert.concert_ends_at.strftime("%H:%M") %></td>
+    </tr>
 </table>
 
 <%= link_to 'Edit', edit_concert_path(@concert) %> | 

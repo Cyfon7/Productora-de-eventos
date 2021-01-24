@@ -30,6 +30,16 @@
         <%= form.date_field :concert_date %>
     </div>
 
+    <div class="field">
+        <%= form.label :concert_starts_at %>
+        <%= form.time_field :concert_starts_at %>
+    </div>
+
+    <div class="field">
+        <%= form.label :concert_ends_at %>
+        <%= form.time_field :concert_ends_at %>
+    </div>
+
     <div class="actions">
         <%= form.submit %>
     </div>
