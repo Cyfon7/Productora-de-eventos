@@ -5,7 +5,6 @@ class GroupsController < ApplicationController
   
   def new
     @group = Group.new
-
   end
 
   def create
@@ -24,10 +23,28 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
   end
 
+  def edit
+    @group = Group.find(params[:id])
+  end
+
   def update
+    @group = Group.find(params[:id])
+
+    respond_to do |format|
+      if @group.update(group_params)
+        format.html { redirect_to group_path(@group), notice: 'Group was successfully updated.' }
+      else
+        format.html { render :edit }
+      end
+    end
   end
 
   def destroy
+    @group = Group.find(params[:id])
+    @group.destroy
+    respond_to do |format|
+      format.html { redirect_to groups_url, notice: 'Group was successfully destroyed.' }
+    end
   end
 
   private

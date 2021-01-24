@@ -18,7 +18,9 @@
                 <td><%= concert.group %></td>
                 <td><%= concert.num_of_attendants %></td>
                 <td><%= concert.concert_date %></td>
-                <td><%= link_to 'Show', concert %></td>
+                <td><%= link_to 'Show', concert_path(concert) %></td>
+                <td><%= link_to 'Edit', edit_concert_path(concert) %></td>
+                <td><%= link_to 'Destroy', concert_path(concert), method: :delete, data: { confirm: 'Are you sure? '} %></td>
             </tr>
         <% end %>
     </tbody>

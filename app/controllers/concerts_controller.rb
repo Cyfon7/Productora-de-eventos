@@ -24,10 +24,29 @@ class ConcertsController < ApplicationController
     @concert = Concert.find(params[:id])
   end
 
+  def edit
+    @concert = Concert.find(params[:id])
+    @groups = Group.all
+  end
+
   def update
+    @concert = Concert.find(params[:id])
+
+    respond_to do |format|
+      if @concert.update(concert_params)
+        format.html { redirect_to concert_path(@concert), notice: 'Concert was successfully updated.' }
+      else
+        format.html { render :edit }
+      end
+    end
   end
 
   def destroy
+    @concert = Concert.find(params[:id])
+    @concert.destroy
+    respond_to do |format|
+      format.html { redirect_to concerts_url, notice: 'Concert was successfully destroyed.' }
+    end
   end
 
   private

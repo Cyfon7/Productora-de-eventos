@@ -18,7 +18,9 @@
                 <td><%= group.num_of_members %></td>
                 <td><%= group.debut_date %></td>
                 <td><%= group.group_type %></td>
-                <td><%= link_to 'Show', group %></td>
+                <td><%= link_to 'Show', group_path(group) %></td>
+                <td><%= link_to 'Edit', edit_group_path(group) %></td>
+                <td><%= link_to 'Destroy', group_path(group), method: :delete, data: { confirm: 'Are you sure? '} %></td>
             </tr>
         <% end %>
     </tbody>
