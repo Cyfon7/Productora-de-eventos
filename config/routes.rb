@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   end
 
   resources :concerts
+
+  root "groups#index"
 end
