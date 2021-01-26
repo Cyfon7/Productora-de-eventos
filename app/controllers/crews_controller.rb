@@ -1,7 +1,6 @@
 class CrewsController < ApplicationController
     def index
       @group = Group.find(params[:group_id])
-
       @crews = @group.crews
     end
     
@@ -38,7 +37,6 @@ class CrewsController < ApplicationController
   
     def update
       @group = Group.find(params[:group_id])
-
       @crew = Crew.find(params[:id])
   
       respond_to do |format|

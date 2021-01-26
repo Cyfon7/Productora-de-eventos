@@ -14,12 +14,14 @@
             <tr>
                 <td><%= crew.name %></td>
                 <td><%= crew.group %></td>
-                <td><%= link_to 'Show', group_crew_path(@group, @crew) %></td>
-                <td><%= link_to 'Edit', edit_group_crew_path(@group, @crew) %></td>
-                <td><%= link_to 'Destroy', group_crew_path(@group, @crew), method: :delete, data: { confirm: 'Are you sure? '} %></td>
+                <td><%= link_to 'Show', group_crew_path(@group, crew) %></td>
+                <td><%= link_to 'Edit', edit_group_crew_path(@group, crew) %></td>
+                <td><%= link_to 'Destroy', group_crew_path(@group, crew), method: :delete, data: { confirm: 'Are you sure? '} %></td>
             </tr>
         <% end %>
     </tbody>
 </table>
 
-<%= link_to 'New Crew', new_group_crew_path(@group) %>
+<%= link_to 'New Crew', new_group_crew_path(@group) %> |
+<%= link_to 'Return to Groups', groups_path %> |
+<%= link_to 'Back', group_path(@group)%>

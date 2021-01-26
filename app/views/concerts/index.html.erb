@@ -22,7 +22,7 @@
                 <td><%= concert.concert_date %></td>
                 <td><%= concert.concert_starts_at.strftime("%H:%M")  %></td>
                 <td><%= concert.concert_ends_at.strftime("%H:%M")  %></td>
-                <td><%= link_to 'Show', concert_path(concert) %></td>
+                <td><%= link_to 'Show', concert_path(concert), method: :get %></td>
                 <td><%= link_to 'Edit', edit_concert_path(concert) %></td>
                 <td><%= link_to 'Destroy', concert_path(concert), method: :delete, data: { confirm: 'Are you sure? '} %></td>
             </tr>
