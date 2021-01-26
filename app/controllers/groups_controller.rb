@@ -49,7 +49,7 @@ class GroupsController < ApplicationController
 
   private
     def group_params
-      params.require(:group).permit(:group_name, :num_of_members, :debut_date, :group_type)
+      params.require(:group).permit(:group_name, :num_of_members, :debut_date, :group_type, crews_attributes:[:id, :name, :_destroy])
     end
 
 end

@@ -57,7 +57,6 @@ class Concert < ApplicationRecord
 
     #Concert with the longest time
     scope :longest_concert, -> (group_id) {
-        concert_duration = []
         if self.where(group_id: group_id).exists?
             concerts_schedule = self.where(group_id: group_id).pluck(:concert_starts_at, :concert_ends_at)
             concert_duration = concerts_schedule.map do |schedule|
@@ -75,9 +74,10 @@ class Concert < ApplicationRecord
                 end
                 Time.new(2000, 1, 1, hours, mins)
             end
-            concert_duration = concert_duration.max
+            concert_duration.max.strftime("%H:%M")
+        else
+            "00:00"
         end
-        concert_duration.strftime("%H:%M")
     }
 
 end

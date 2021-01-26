@@ -9,6 +9,7 @@
             <th>Type</th>
             <th>Total Concerts</th>
             <th>Total Attendants</th>
+            <th>Crews</th>
             <th colspan="3"></th>
         </tr>
     </thead>
@@ -22,6 +23,7 @@
                 <td><%= group.group_type %></td>
                 <td><%= Concert.concerts_of_group(group.id) %></td>
                 <td><%= Concert.group_attendants(group.id) %></td>
+                <td><%= Crew.crew_list(group.id) %></td>
                 <td><%= link_to 'Show', group_path(group) %></td>
                 <td><%= link_to 'Edit', edit_group_path(group) %></td>
                 <td><%= link_to 'Destroy', group_path(group), method: :delete, data: { confirm: 'Are you sure? '} %></td>

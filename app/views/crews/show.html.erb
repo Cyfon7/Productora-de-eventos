@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+    <tr>
+        <th>Name:</th>
+        <td><%= @crew.name %></td>
+
+        <th>Group:</th>
+        <td><%= @crew.group %></td>
+
+    </tr>
+</table>
+
+<%= link_to 'Edit', edit_group_crew_path(@group, @crew) %> | 
+<%= link_to 'Back', groups_path(@group) %>
