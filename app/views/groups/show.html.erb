@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<table>
+<table class="table">
     <tr>
         <th>Name:</th>
         <td><%= @group.group_name %></td>
@@ -43,7 +43,7 @@
 
 </table>
 
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'New Crew', new_group_crew_path(@group) %> | 
-<%= link_to 'List Crews', group_crews_path(params[:id],) %> | 
-<%= link_to 'Return to Groups', groups_path %>
+<%= link_to 'Edit', edit_group_path(@group), class: 'btn btn-primary' %>
+<%= link_to 'New Crew', new_group_crew_path(@group), class: 'btn btn-primary' %>
+<%= link_to 'List Crews', group_crews_path(params[:id],), class: 'btn btn-primary' %>
+<%= link_to 'Return to Groups', groups_path, class: 'btn btn-primary' %>

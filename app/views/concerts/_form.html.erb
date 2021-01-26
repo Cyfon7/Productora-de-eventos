@@ -10,32 +10,32 @@
         </div>
     <% end %>
 
-    <div class="field">
+    <div class="form_group">
         <%= form.label :concert_title %>
         <%= form.text_field :concert_title %>
     <div>
 
-    <div class="field">
+    <div class="form_group">
         <%= form.label :group_id %>
         <%= form.select :group_id, @groups.map {|group| [group.group_name, group.id] }, prompt: "Choose a group" %>
     </div>
 
-    <div class="field">
+    <div class="form_group">
         <%= form.label :num_of_attendants %>
         <%= form.number_field :num_of_attendants %>
     </div>
 
-    <div class="field">
+    <div class="form_group">
         <%= form.label :concert_date %>
         <%= form.date_field :concert_date %>
     </div>
 
-    <div class="field">
+    <div class="form_group">
         <%= form.label :concert_starts_at %>
         <%= form.time_field :concert_starts_at %>
     </div>
 
-    <div class="field">
+    <div class="form_group">
         <%= form.label :concert_ends_at %>
         <%= form.time_field :concert_ends_at %>
     </div>

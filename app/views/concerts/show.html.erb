@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<table>
+<table class="table">
     <tr>
         <th>Title:</th>
         <td><%= @concert.concert_title %></td>
@@ -32,5 +32,5 @@
     </tr>
 </table>
 
-<%= link_to 'Edit', edit_concert_path(@concert) %> | 
-<%= link_to 'Back', concerts_path %>
+<%= link_to 'Edit', edit_concert_path(@concert), class: 'btn btn-primary' %> 
+<%= link_to 'Back', concerts_path, class: 'btn btn-primary' %>

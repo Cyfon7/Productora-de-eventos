@@ -10,22 +10,22 @@
         </div>
     <% end %>
 
-    <div class="field">
+    <div class="form_group">
         <%= form.label :group_name %>
         <%= form.text_field :group_name %>
     <div>
 
-    <div class="field">
+    <div class="form_group">
         <%= form.label :num_of_members %>
         <%= form.number_field :num_of_members %>
     </div>
 
-    <div class="field">
+    <div class="form_group">
         <%= form.label :debut_date %>
         <%= form.date_field :debut_date %>
     </div>
 
-    <div class="field">
+    <div class="form_group">
         <%= form.label :group_type %>
         <%= form.select :group_type, Group.group_types.keys, prompt: "Choose a type" %>
     </div>
